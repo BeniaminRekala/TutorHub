@@ -38,6 +38,10 @@ app.post("/register", (req, res) => {
 
 });
 
+
+
+
+
 app.post("/login", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -53,7 +57,7 @@ app.post("/login", (req, res) => {
             if (result.length > 0) {
                 bcrypt.compare(password, result[0].password, (err, result2) => {
                     if (result2) {
-                        req.session.user =result;
+                        req.session.user = result;
                         console.log(req.session.user)
                         res.send(result)
                     } else {
